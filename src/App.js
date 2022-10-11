@@ -7,9 +7,9 @@ import Editable from "./Components/Editabled/Editable";
 
 function App() {
   const [boards, setBoards] = useState(
-    JSON.parse(localStorage.getItem("prac-kanban")) || ["Todo"]
+    JSON.parse(localStorage.getItem("prac-kanban")) || []
   );
-  const [todo, setTodo] = useState("Todo")
+  // const [todo, setTodo] = useState("Todo")
 
   const [targetCard, setTargetCard] = useState({
     bid: "",
@@ -17,7 +17,7 @@ function App() {
   });
 
   const addboardHandler = (name) => {
-    const tempBoards = [...boards, todo];
+    const tempBoards = [...boards];
     tempBoards.push({
       id: Date.now() + Math.random() * 2,
       title: name,
@@ -149,7 +149,7 @@ function App() {
               displayClass="app_boards_add-board"
               editClass="app_boards_add-board_edit"
               placeholder="Enter Board Name"
-              text="Todo"
+              text="Add board"
               buttonText="Add Board"
               onSubmit={addboardHandler}
             />
